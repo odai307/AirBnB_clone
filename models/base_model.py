@@ -22,11 +22,9 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        """return a dictionary containing all keys/values of __dict__ of the instance"""
+        """return a dictionary containing all keys/values of instance"""
         my_dict = self.__dict__
         my_dict["__class__"] = self.__class__name
         my_dict["created_at"] = self.created_at.isoformat()
         my_dict["updated_at"] = self.updated_at.isoformat()
         return my_dict
-a1 = BaseModel()
-print(a1)
