@@ -1,21 +1,32 @@
 #!/usr/bin/python3
-"""Testing base_model file"""
+"""A module to test the base_model class"""
 import unittest
-import uuid
 from datetime import datetime
 from models.base_model import BaseModel
 
+
 class TestBaseModel(unittest.TestCase):
-    """A class to test the BaseModel class"""
-    def test_init_BaseModel(self):
-        """test if an object belongs to the BaseModel class"""
+    """Test for class BaseModel"""
+    def test_init_model(self):
+        """check if an instance created belongs to the BaseModel class"""
         my_object = BaseModel()
         self.assertIsInstance(my_object, BaseModel)
 
+    def test_unique_id(self):
+        """Tests to verify if each object of the BaseModel class have a unique id"""
+        object_1 = BaseModel()
+        object_2 = BaseModel()
+        self.assertNotEqual(object_1.id, object_2.id)
+    
     def test_save(self):
-        """test if=date updates when saved"""
-        my_object = BaseModel()
-        first_updated = my_object.updated_at()
-        my_object.save()
-        second_
-        
+        item = BaseModel()
+        first_save = item.updated_at
+        item.save()
+        second_save = item.updated_at
+        self.assertNotEqual(first_save, second_save)
+
+    def test_str(self):
+        obj1 = BaseModel()
+        dictionary = obj1.__dict__
+        self.assertEqual(str(obj1), f"[BaseModel] ({obj1.id}) {dictionary}")
+
