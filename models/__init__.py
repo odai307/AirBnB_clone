@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""module for models"""
-
-from models.engine.file_storage import file_storage
-
+"""Initializes the package"""
+from models.engine.file_storage import FileStorage
 storage = FileStorage()
 storage.reload()
